@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="com.company.spancy"
+                   namespace="com.company.spancy.entity">
+
+  <!-- more mapping info here -->
+  <class name="Cart" table="Carts">
+    <id name="Id">
+      <generator class="native" />
+    </id>
+    <property name="Amount" />
+    <one-to-one name="Customer" property-ref="Cart"/>
+  </class>
+
+</hibernate-mapping>
+<!--
+CREATE TABLE "Carts" (
+	"Id"	INTEGER,
+	"Amount"	NUMERIC,
+	PRIMARY KEY("Id" AUTOINCREMENT)
+);
+-->

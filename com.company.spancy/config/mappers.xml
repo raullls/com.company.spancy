@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+  <object id="ProductMapper" type="com.company.spancy.mapper.impl.BaseMapper&lt;com.company.spancy.dto.ProductDto,com.company.spancy.entity.Product>, com.company.spancy"></object>
+  <object id="BookMapper" type="com.company.spancy.mapper.impl.BookMapper, com.company.spancy"></object>
+  <object id="CustomerMapper" type="com.company.spancy.mapper.impl.CustomerMapper, com.company.spancy"></object>
+  <object id="UserMapper" type="com.company.spancy.mapper.impl.UserMapper, com.company.spancy">
+    <property name="Dao" ref="UserDao"/>
+  </object>
+  <object id="GroupMapper" type="com.company.spancy.mapper.impl.GroupMapper, com.company.spancy"></object>
+  <object id="CategoryMapper" type="com.company.spancy.mapper.impl.CategoryMapper, com.company.spancy">
+    <property name="Dao" ref="CategoryDao"/>
+    <property name="Hql" value="from Category c where c.Id = :Id" />
+  </object>
+  <object id="StudentMapper" type="com.company.spancy.mapper.impl.StudentMapper, com.company.spancy">
+    <property name="Dao" ref="StudentDao"/>
+    <property name="Hql" value="from Student s where lower(s.Name) = lower(:Name)" />
+  </object>
+  <object id="PersonMapper" type="com.company.spancy.mapper.impl.PersonMapper, com.company.spancy">
+    <property name="Dao" ref="PersonDao"/>
+    <property name="Hql" value="from Person p where lower(p.Name) = lower(:Name)" />
+  </object>
+  <object id="ItemMapper" type="com.company.spancy.mapper.impl.ItemMapper, com.company.spancy">
+    <property name="Dao" ref="ItemDao"/>
+    <property name="Hql" value="from Item i where lower(i.Name) = lower(:Name)" />
+  </object>
+  <object id="AccountMapper" type="com.company.spancy.mapper.impl.AccountMapper, com.company.spancy">
+    <property name="Dao" ref="AccountDao"/>
+  </object>
+  <object id="ClientMapper" type="com.company.spancy.mapper.impl.ClientMapper, com.company.spancy">
+    <property name="Dao" ref="ClientDao"/>
+  </object>
+  <object id="AuthorMapper" type="com.company.spancy.mapper.impl.AuthorMapper, com.company.spancy">
+    <property name="Dao" ref="AuthorDao"/>
+  </object>
+  <object id="ManuscriptMapper" type="com.company.spancy.mapper.impl.ManuscriptMapper, com.company.spancy">
+    <property name="Dao" ref="ManuscriptDao"/>
+  </object>
+  <object id="MemberMapper" type="com.company.spancy.mapper.impl.MemberMapper, com.company.spancy">
+    <property name="Dao" ref="MemberDao"/>
+  </object>
+  <object id="WorkerMapper" type="com.company.spancy.mapper.impl.WorkerMapper, com.company.spancy">
+    <property name="Dao" ref="WorkerDao"/>
+  </object>
+  <object id="ProtocolMapper" type="com.company.spancy.mapper.impl.ProtocolMapper, com.company.spancy">
+    <property name="Dao" ref="ProtocolDao"/>
+  </object>
+  <object id="EstateMapper" type="com.company.spancy.mapper.impl.EstateMapper, com.company.spancy">
+    <property name="Dao" ref="EstateDao"/>
+  </object>
+  <object id="EmployeeMapper" type="com.company.spancy.mapper.impl.EmployeeMapper, com.company.spancy">
+    <property name="Dao" ref="EmployeeDao"/>
+  </object>
+</objects>

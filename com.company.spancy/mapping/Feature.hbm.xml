@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="com.company.spancy"
+                   namespace="com.company.spancy.entity">
+
+  <!-- more mapping info here -->
+  <class name="Feature" table="Features">
+    <id name="Id">
+      <generator class="native" />
+    </id>
+    <property name="Name" />
+    <many-to-one name="Item" column="ItemId" />
+  </class>
+
+</hibernate-mapping>
+<!--
+CREATE TABLE "Features" (
+	"Id"	INTEGER,
+	"Name"	TEXT,
+	"ItemId"	INTEGER,
+	PRIMARY KEY("Id" AUTOINCREMENT),
+	FOREIGN KEY("ItemId") REFERENCES "Items"("Id")
+)
+-->

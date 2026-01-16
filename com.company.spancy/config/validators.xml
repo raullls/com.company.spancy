@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net" xmlns:v="http://www.springframework.net/validation">
+  <v:group id="dtoValidator">
+    <v:condition test="#root != null">
+      <v:message id="error.emptynullcheck" providers="provider">
+        <v:param value="#root"></v:param>
+      </v:message>
+    </v:condition>
+  </v:group>
+
+  <v:group id="productValidator">
+    <v:condition test="#root != null and #root.Name != null and #root.Name != ''">
+      <v:message id="error.emptynullcheck" providers="provider">
+        <v:param value="#root"></v:param>
+      </v:message>
+    </v:condition>
+  </v:group>
+
+  <v:group id="protocolValidator">
+    <v:condition test="#root != null and !string.IsNullOrEmpty(#root.Name) and !string.IsNullOrEmpty(#root.Type)">
+      <v:message id="error.emptynullcheck" providers="provider">
+        <v:param value="#root"></v:param>
+      </v:message>
+    </v:condition>
+  </v:group>
+  
+  <v:group id="bookValidator">
+    <v:condition test="#root != null and #root.Name != null and #root.Name != '' and #root.City != null and #root.City != ''">
+      <v:message id="error.emptynullcheck" providers="provider">
+        <v:param value="#root"></v:param>
+      </v:message>
+    </v:condition>
+  </v:group>
+
+  <v:group id="customerValidator">
+    <v:condition test="#root != null and #root.Name != null and #root.Name != '' and #root.Amount != null and #root.Amount > 0">
+      <v:message id="error.emptynullcheck" providers="provider">
+        <v:param value="#root"></v:param>
+      </v:message>
+    </v:condition>
+  </v:group>
+
+  <v:group id="studentValidator">
+    <v:condition test="#root != null and #root.Name != null">
+      <v:message id="error.emptynullcheck" providers="provider">
+        <v:param value="#root"></v:param>
+      </v:message>
+    </v:condition>
+  </v:group>
+
+  <v:group id="personValidator">
+    <v:condition test="!string.IsNullOrEmpty(#root.Name) and #root.Numbers != null and #root.Numbers.Count > 0">
+      <v:message id="error.emptynullcheck" providers="provider">
+        <v:param value="#root" />
+      </v:message>
+    </v:condition>
+    <v:condition test="#root.Numbers.?{#this matches '^\d{3}$'}.count() == #root.Numbers.Count">
+      <v:message id="error.numberregex" providers="provider">
+        <v:param value="#root.Numbers" />
+      </v:message>
+    </v:condition>
+  </v:group>
+
+  <v:group id="itemValidator">
+    <v:condition test="!string.IsNullOrEmpty(#root.Name) and #root.FeatureList != null and #root.FeatureList.Count > 0 and #root.FeatureList.?{#this matches '^.+$'}.count() == #root.FeatureList.Count">
+      <v:message id="error.emptynullcheck" providers="provider">
+        <v:param value="#root" />
+      </v:message>
+    </v:condition>
+  </v:group>
+
+  <v:group id="categoryValidator">
+    <v:condition test="!string.IsNullOrEmpty(#root.Name)">
+      <v:message id="error.emptynullcheck" providers="provider">
+        <v:param value="#root" />
+      </v:message>
+    </v:condition>
+  </v:group>
+
+  <v:group id="accountValidator">
+    <v:regex test="Number" expression="^\d{3}$">
+      <v:message id="error.numberregex" providers="provider">
+        <v:param value="#root" />
+      </v:message>
+    </v:regex>
+  </v:group>
+</objects>

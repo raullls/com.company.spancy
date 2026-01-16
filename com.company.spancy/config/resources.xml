@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+  <object name="appConfigPropertyHolder" type="Spring.Objects.Factory.Config.PropertyPlaceholderConfigurer, Spring.Core">
+    <property name="configSections">
+      <list>
+        <value>appconfig</value>
+      </list>
+    </property>
+  </object>
+  
+  <object name="messageSource" type="Spring.Context.Support.ResourceSetMessageSource, Spring.Core">
+    <property name="resourceManagers">
+      <list>
+        <value>com.company.spancy.resource.appresource, com.company.spancy</value>
+      </list>
+    </property>
+  </object>
+</objects>

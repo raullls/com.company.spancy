@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="com.company.spancy"
+                   namespace="com.company.spancy.entity">
+
+  <!-- more mapping info here -->
+  <class name="Protocol" table="Protocols" discriminator-value="PROTOCOL">
+    <id name="Id">
+      <generator class="native"/>
+    </id>
+    <discriminator column="Discriminator" />
+    <property name="Name" />
+    <subclass name="Tcp" discriminator-value="TCP">
+    </subclass>
+    <subclass name="Snmp" discriminator-value="SNMP">
+    </subclass>
+  </class>
+
+</hibernate-mapping>
+<!--
+CREATE TABLE "Protocols" (
+	"Id"	INTEGER,
+	"Name"	TEXT,
+	"Discriminator"	TEXT,
+	PRIMARY KEY("Id" AUTOINCREMENT)
+)
+-->

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="com.company.spancy"
+                   namespace="com.company.spancy.entity">
+
+  <!-- more mapping info here -->
+  <class name="Client" table="Clients">
+    <id name="Id">
+      <generator class="native" />
+    </id>
+    <property name="Name" />
+    <bag name="Accounts" table="ClientsAccounts" cascade="save-update">
+      <key column="ClientId"/>
+      <many-to-many column="AccountId" class="Account"/>
+    </bag>
+  </class>
+
+</hibernate-mapping>
+<!--
+CREATE TABLE "Clients" (
+	"Id"	INTEGER,
+	"Name"	TEXT,
+	PRIMARY KEY("Id" AUTOINCREMENT)
+)
+-->

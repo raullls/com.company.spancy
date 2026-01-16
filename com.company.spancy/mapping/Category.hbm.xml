@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="com.company.spancy"
+                   namespace="com.company.spancy.entity">
+
+  <!-- more mapping info here -->
+  <class name="Category" table="Categories">
+    <id name="Id">
+      <generator class="native" />
+    </id>
+    <property name="Name" />
+    <many-to-one name="ParentCategory" column="CategoryId" cascade="save-update" />
+  </class>
+
+</hibernate-mapping>
+<!--
+CREATE TABLE "Categories" (
+	"Id"	INTEGER,
+	"Name"	TEXT,
+	"CategoryId"	INTEGER,
+	PRIMARY KEY("Id" AUTOINCREMENT),
+	FOREIGN KEY("CategoryId") REFERENCES "Categories"("Id")
+)
+-->

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="com.company.spancy"
+                   namespace="com.company.spancy.entity">
+
+  <!-- more mapping info here -->
+  <class name="Project" table="Projects">
+    <id name="Id">
+      <generator class="native" />
+    </id>
+    <property name="Name" />
+  </class>
+
+</hibernate-mapping>
+
+<!--
+CREATE TABLE Projects
+(
+Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+Name TEXT
+)
+-->

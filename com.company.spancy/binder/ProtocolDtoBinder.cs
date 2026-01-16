@@ -1,0 +1,46 @@
+﻿using com.company.spancy.dto;
+using Nancy;
+using Nancy.ModelBinding;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace com.company.spancy.binder
+{
+    public class ProtocolDtoBinder : IModelBinder
+    {
+        public object Bind(NancyContext context, Type modelType, object instance, BindingConfig configuration, params string[] blackList)
+        {
+            using (StreamReader reader = new StreamReader(context.Request.Body))
+            {
+                string json = reader.ReadToEnd();
+                JObject jObject = JObject.Parse(json);
+
+                string type = jObject["type"]?.ToString();
+
+                Type targetType = null;
+                switch (type)
+                {
+                    case "tcp":
+                        targetType = typeof(TcpDto);
+                        break;
+                    case "snmp":
+                        targetType = typeof(SnmpDto);
+                        break;
+                }
+
+                return JsonConvert.DeserializeObject(json, targetType);
+            }
+        }
+
+        public bool CanBind(Type modelType)
+        {
+            return modelType == typeof(ProtocolDto);
+        }
+    }
+}

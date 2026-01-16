@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net" xmlns:aop="http://www.springframework.net/aop">
+  <object id="CustomLoggingAdvice" type="com.company.spancy.logging.CustomLoggingAdvice, com.company.spancy">
+    <property name="LogUniqueIdentifier" value="true"></property>
+    <property name="LogExecutionTime" value="true"></property>
+    <property name="LogMethodArguments" value="true"></property>
+    <property name="LogReturnValue" value="true"></property>
+    <property name="Separator" value=";"></property>
+    <property name="LogLevel" value="DEBUG"></property>
+    <property name="HideProxyTypeNames" value="true"></property>
+    <property name="UseDynamicLogger" value="true"></property>
+  </object>
+
+  <object id="SpancyPointcut" type="Spring.Aop.Support.SdkRegularExpressionMethodPointcut, Spring.Aop">
+    <property name="pattern" value="com\.company\.spancy\.(?!module\.).*" />
+  </object>
+  
+  <object id="ServicePointcut" type="Spring.Aop.Support.SdkRegularExpressionMethodPointcut, Spring.Aop">
+    <property name="pattern" value="com\.company\.spancy\.service\.impl\..*" />
+  </object>
+
+  <object id="ValidationAdvice" type="Spring.Aspects.Validation.ParameterValidationAdvice, Spring.Aop"/>
+
+  <object name="ExceptionHandlingAdvice" type="Spring.Aspects.Exceptions.ExceptionHandlerAdvice, Spring.Aop">
+    <property name="exceptionHandlers">
+      <list>
+        <value>on exception name ValidationException return new com.company.spancy.Response(null, @(CustomLoggingAdvice).UniqueIdentifier, #e.ValidationErrors.GetResolvedErrors('provider', @(messageSource)))</value>
+        <value>on exception name Exception return new com.company.spancy.Response(null, @(CustomLoggingAdvice).UniqueIdentifier, new string[] {#e.Message})</value>
+      </list>
+    </property>
+  </object>
+
+  <object id="WrapResponseInterceptor" type="com.company.spancy.interceptor.WrapResponseInterceptor, com.company.spancy"></object>
+
+  <object id="TransactionInterceptor" type="Spring.Transaction.Interceptor.TransactionInterceptor, Spring.Data">
+    <property name="TransactionManager" ref="TransactionManager"></property>
+    <property name="TransactionAttributes">
+      <name-values>
+        <add key="*TX" value="PROPAGATION_REQUIRED"/>
+        <add key="*RO" value="PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly"/>
+      </name-values>
+    </property>
+  </object>
+
+  <aop:config>
+    <aop:advisor pointcut-ref="SpancyPointcut" advice-ref="TransactionInterceptor"/>
+    <aop:advisor pointcut-ref="ServicePointcut" advice-ref="ExceptionHandlingAdvice"/>
+    <!--<aop:advisor pointcut-ref="ServicePointcut" advice-ref="WrapResponseInterceptor"/>-->
+    <aop:advisor pointcut-ref="SpancyPointcut" advice-ref="CustomLoggingAdvice"/>
+    <aop:advisor pointcut-ref="SpancyPointcut" advice-ref="ValidationAdvice"/>
+  </aop:config>
+</objects>

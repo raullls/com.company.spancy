@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="com.company.spancy"
+                   namespace="com.company.spancy.entity">
+
+  <!-- more mapping info here -->
+  <class name="WorkerWorker" table="WorkersWorkers">
+    <composite-id>
+      <key-many-to-one name="Worker1" class="Worker" column="Worker1Id"/>
+      <key-many-to-one name="Worker2" class="Worker" column="Worker2Id"/>
+    </composite-id>
+    <property name="Relationship" />
+  </class>
+
+</hibernate-mapping>
+<!--
+CREATE TABLE "WorkersWorkers" (
+	"Worker1Id"	INTEGER,
+	"Worker2Id"	INTEGER,
+	"Relationship"	TEXT,
+	PRIMARY KEY("Worker1Id","Worker2Id"),
+	FOREIGN KEY("Worker2Id") REFERENCES "Workers"("Id"),
+	FOREIGN KEY("Worker1Id") REFERENCES "Workers"("Id")
+)
+-->

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<RunSettings>
+  <RunConfiguration>
+    <ResultsDirectory>.\results</ResultsDirectory>
+  </RunConfiguration>
+  <LoggerRunSettings>
+    <Loggers>
+      <Logger friendlyName="trx" enabled="True" />
+      <Logger friendlyName="html" enabled="True" />
+    </Loggers>
+  </LoggerRunSettings>
+</RunSettings>

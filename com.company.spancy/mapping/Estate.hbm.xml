@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="com.company.spancy"
+                   namespace="com.company.spancy.entity">
+
+  <!-- more mapping info here -->
+  <class name="Estate" table="Estates">
+    <id name="Id">
+      <generator class="native" />
+    </id>
+    <property name="Name" />
+    <joined-subclass name="Building" table="Buildings">
+      <key column="Id"/>
+      <property name="Floors" />
+    </joined-subclass>
+    <joined-subclass name="Land" table="Lands">
+      <key column="Id"/>
+      <property name="Area" />
+    </joined-subclass>
+  </class>
+
+</hibernate-mapping>
+<!--
+CREATE TABLE "Estates" (
+	"Id"	INTEGER,
+	"Name"	TEXT,
+	PRIMARY KEY("Id" AUTOINCREMENT)
+)
+CREATE TABLE "Buildings" (
+	"Id"	INTEGER,
+	"Floors"	INTEGER,
+	PRIMARY KEY("Id")
+)
+CREATE TABLE "Lands" (
+	"Id"	INTEGER,
+	"Area"	INTEGER,
+	PRIMARY KEY("Id")
+)
+-->

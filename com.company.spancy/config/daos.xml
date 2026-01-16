@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net" xmlns:db="http://www.springframework.net/database" xmlns:context="http://www.springframework.net/context">
+  <object id="BaseDao" type="com.company.spancy.dao.impl.BaseDao, com.company.spancy" abstract="true">
+    <property name="SessionFactory" ref="NHibernateSessionFactory"/>
+  </object>
+  <object id="ProjectDao" type="com.company.spancy.dao.impl.ProjectDao, com.company.spancy" parent="BaseDao"></object>
+  <object id="ProductDao" type="com.company.spancy.dao.impl.ProductDao, com.company.spancy" parent="BaseDao"></object>
+  <object id="BookDao" type="com.company.spancy.dao.impl.BookDao, com.company.spancy" parent="BaseDao"></object>
+  <object id="CustomerDao" type="com.company.spancy.dao.impl.CustomerDao, com.company.spancy" parent="BaseDao"></object>
+  <object id="StudentDao" type="com.company.spancy.dao.impl.StudentDao, com.company.spancy" parent="BaseDao"></object>
+  <object id="PersonDao" type="com.company.spancy.dao.impl.PersonDao, com.company.spancy" parent="BaseDao"></object>
+  <object id="ItemDao" type="com.company.spancy.dao.impl.ItemDao, com.company.spancy" parent="BaseDao"></object>
+  <object id="CategoryDao" type="com.company.spancy.dao.impl.CategoryDao, com.company.spancy" parent="BaseDao"></object>
+  <object id="UserDao" type="com.company.spancy.dao.impl.UserDao, com.company.spancy" parent="BaseDao"></object>
+  <object id="GroupDao" type="com.company.spancy.dao.impl.GroupDao, com.company.spancy" parent="BaseDao"></object>
+  <object id="UserGroupDao" type="com.company.spancy.dao.impl.UserGroupDao, com.company.spancy">
+    <property name="SessionFactory" ref="NHibernateSessionFactory"/>
+  </object>
+  <object id="ClientDao" type="com.company.spancy.dao.impl.ClientDao, com.company.spancy" parent="BaseDao"></object>
+  <object id="AccountDao" type="com.company.spancy.dao.impl.AccountDao, com.company.spancy" parent="BaseDao"></object>
+  <object id="ClientAccountDao" type="com.company.spancy.dao.impl.ClientAccountDao, com.company.spancy">
+    <property name="SessionFactory" ref="NHibernateSessionFactory"/>
+  </object>
+  <object id="ManuscriptDao" type="com.company.spancy.dao.impl.ManuscriptDao, com.company.spancy" parent="BaseDao"></object>
+  <object id="AuthorDao" type="com.company.spancy.dao.impl.AuthorDao, com.company.spancy" parent="BaseDao"></object>
+  <object id="ManuscriptAuthorDao" type="com.company.spancy.dao.impl.ManuscriptAuthorDao, com.company.spancy" parent="BaseDao"></object>
+  <object id="MemberDao" type="com.company.spancy.dao.impl.MemberDao, com.company.spancy" parent="BaseDao"></object>
+  <object id="MemberMemberDao" type="com.company.spancy.dao.impl.MemberMemberDao, com.company.spancy">
+    <property name="SessionFactory" ref="NHibernateSessionFactory"/>
+  </object>
+  <object id="WorkerDao" type="com.company.spancy.dao.impl.WorkerDao, com.company.spancy" parent="BaseDao"></object>
+  <object id="WorkerWorkerDao" type="com.company.spancy.dao.impl.WorkerWorkerDao, com.company.spancy">
+    <property name="SessionFactory" ref="NHibernateSessionFactory"/>
+  </object>
+  <object id="ProtocolDao" type="com.company.spancy.dao.impl.ProtocolDao, com.company.spancy" parent="BaseDao"></object>
+  <object id="EstateDao" type="com.company.spancy.dao.impl.EstateDao, com.company.spancy" parent="BaseDao"></object>
+  <object id="EmployeeDao" type="com.company.spancy.dao.impl.EmployeeDao, com.company.spancy" parent="BaseDao"></object>
+
+  <!-- Database Configuration -->
+  <db:provider id="DbProvider" provider="SQLite-1.0.65" connectionString="Data Source=${root.path}\database\sample.db;Version=3;FailIfMissing=True;"/>
+
+  <!-- NHibernate SessionFactory configuration -->
+  <object id="NHibernateSessionFactory" type="Spring.Data.NHibernate.LocalSessionFactoryObject, Spring.Data.NHibernate5">
+    <property name="DbProvider" ref="DbProvider"/>
+    <property name="MappingResources">
+      <list>
+        <value>${root.path}\mapping\Project.hbm.xml</value>
+        <value>${root.path}\mapping\Product.hbm.xml</value>
+        <value>${root.path}\mapping\Book.hbm.xml</value>
+        <value>${root.path}\mapping\Shipping.hbm.xml</value>
+        <value>${root.path}\mapping\Customer.hbm.xml</value>
+        <value>${root.path}\mapping\Cart.hbm.xml</value>
+        <value>${root.path}\mapping\Student.hbm.xml</value>
+        <value>${root.path}\mapping\Person.hbm.xml</value>
+        <value>${root.path}\mapping\Phone.hbm.xml</value>
+        <value>${root.path}\mapping\Item.hbm.xml</value>
+        <value>${root.path}\mapping\Feature.hbm.xml</value>
+        <value>${root.path}\mapping\Category.hbm.xml</value>
+        <value>${root.path}\mapping\User.hbm.xml</value>
+        <value>${root.path}\mapping\Group.hbm.xml</value>
+        <value>${root.path}\mapping\Client.hbm.xml</value>
+        <value>${root.path}\mapping\Account.hbm.xml</value>
+        <value>${root.path}\mapping\Manuscript.hbm.xml</value>
+        <value>${root.path}\mapping\Author.hbm.xml</value>
+        <value>${root.path}\mapping\ManuscriptAuthor.hbm.xml</value>
+        <value>${root.path}\mapping\Member.hbm.xml</value>
+        <value>${root.path}\mapping\Worker.hbm.xml</value>
+        <value>${root.path}\mapping\WorkerWorker.hbm.xml</value>
+        <value>${root.path}\mapping\Protocol.hbm.xml</value>
+        <value>${root.path}\mapping\Estate.hbm.xml</value>
+        <value>${root.path}\mapping\Employee.hbm.xml</value>
+      </list>
+    </property>
+    <property name="HibernateProperties">
+      <dictionary>
+        <entry key="hibernate.connection.provider" value="NHibernate.Connection.DriverConnectionProvider"/>
+        <entry key="dialect" value="NHibernate.Dialect.SQLiteDialect"/>
+        <entry key="connection.driver_class" value="NHibernate.Driver.SQLite20Driver"/>
+        <entry key="show_sql" value="true"/>
+      </dictionary>
+    </property>
+
+    <!-- provides integration with Spring's declarative transaction management features -->
+    <property name="ExposeTransactionAwareSessionFactory" value="true" />
+  </object>
+
+  <!-- Transaction Management Strategy - local database transactions -->
+  <object id="TransactionManager" type="Spring.Data.NHibernate.HibernateTransactionManager, Spring.Data.NHibernate5">
+    <property name="DbProvider" ref="DbProvider"/>
+    <property name="SessionFactory" ref="NHibernateSessionFactory"/>
+  </object>
+</objects>

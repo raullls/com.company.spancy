@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="com.company.spancy"
+                   namespace="com.company.spancy.entity">
+
+  <!-- more mapping info here -->
+  <class name="Manuscript" table="Manuscripts">
+    <id name="Id">
+      <generator class="native" />
+    </id>
+    <property name="Name" />
+    <bag name="ManuscriptAuthors" cascade="all-delete-orphan" inverse="true">
+      <key column="ManuscriptId"/>
+      <one-to-many class="ManuscriptAuthor"/>
+    </bag>
+  </class>
+
+</hibernate-mapping>
+<!--
+CREATE TABLE "Manuscripts" (
+	"Id"	INTEGER,
+	"Name"	TEXT,
+	PRIMARY KEY("Id" AUTOINCREMENT)
+)
+-->

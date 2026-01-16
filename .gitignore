@@ -1,0 +1,13 @@
+# C#
+*.user
+bin/
+obj/
+.vs/
+Visual Studio 2019/
+Visual Studio 2019Templates/
+packages/
+com.company.spancy.test/results/
+# Node.js
+node_modules/
+dist/
+build/

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="com.company.spancy"
+                   namespace="com.company.spancy.entity">
+
+  <!-- more mapping info here -->
+  <class name="Member" table="Members">
+    <id name="Id">
+      <generator class="native" />
+    </id>
+    <property name="Name" />
+    <bag name="Members" table="MembersMembers">
+        <key column="Member1Id"/>
+        <many-to-many column="Member2Id" class="Member"/>
+    </bag>
+    <bag name="ReverseMembers" table="MembersMembers">
+        <key column="Member2Id"/>
+        <many-to-many column="Member1Id" class="Member"/>
+    </bag>
+  </class>
+
+</hibernate-mapping>
+<!--
+CREATE TABLE "Members" (
+	"Id"	INTEGER,
+	"Name"	TEXT,
+	PRIMARY KEY("Id" AUTOINCREMENT)
+)
+-->

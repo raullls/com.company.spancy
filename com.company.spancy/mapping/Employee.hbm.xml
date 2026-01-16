@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="com.company.spancy"
+                   namespace="com.company.spancy.entity">
+
+  <!-- more mapping info here -->
+  <class name="Employee" table="Employees">
+    <id name="Id">
+      <generator class="counter" />
+    </id>
+    <property name="Name" />
+    <union-subclass name="PermanentEmployee" table="PermanentEmployees">
+      <property name="Leaves" />
+      <property name="Salary" />
+    </union-subclass>
+    <union-subclass name="ContractorEmployee" table="ContractorEmployees">
+      <property name="HourleyRate" />
+      <property name="OvertimeRate" />
+    </union-subclass>
+  </class>
+
+</hibernate-mapping>
+<!--
+CREATE TABLE "Employees" (
+	"Id"	INTEGER,
+	"Name"	TEXT,
+	PRIMARY KEY("Id" AUTOINCREMENT)
+)
+CREATE TABLE "PermanentEmployees" (
+	"Id"	INTEGER,
+	"Name"	TEXT,
+	"Leaves"	INTEGER,
+	"Salary"	INTEGER,
+	FOREIGN KEY("Id") REFERENCES "Employees"("Id"),
+	PRIMARY KEY("Id")
+)
+CREATE TABLE "ContractorEmployees" (
+	"Id"	INTEGER,
+	"Name"	TEXT,
+	"HourleyRate"	INTEGER,
+	"OvertimeRate"	INTEGER,
+	PRIMARY KEY("Id"),
+	FOREIGN KEY("Id") REFERENCES "Employees"("Id")
+)
+-->

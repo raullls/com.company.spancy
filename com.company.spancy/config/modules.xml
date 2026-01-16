@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+  <object id="NancyModule" type="Nancy.NancyModule, Nancy" abstract="true"></object>
+  <object id="ProductModule" type="com.company.spancy.module.ProductModule, com.company.spancy" parent="NancyModule">
+    <property name="ProductService" ref="ProductService"/>
+  </object>
+  <object id="BookModule" type="com.company.spancy.module.BookModule, com.company.spancy" parent="NancyModule">
+    <property name="BookService" ref="BookService"/>
+  </object>
+  <object id="CustomerModule" type="com.company.spancy.module.CustomerModule, com.company.spancy" parent="NancyModule">
+    <property name="CustomerService" ref="CustomerService"/>
+  </object>
+  <object id="StudentModule" type="com.company.spancy.module.StudentModule, com.company.spancy" parent="NancyModule">
+    <property name="StudentService" ref="StudentService"/>
+  </object>
+  <object id="PersonModule" type="com.company.spancy.module.PersonModule, com.company.spancy" parent="NancyModule">
+    <property name="PersonService" ref="PersonService"/>
+  </object>
+  <object id="ItemModule" type="com.company.spancy.module.ItemModule, com.company.spancy" parent="NancyModule">
+    <property name="ItemService" ref="ItemService"/>
+  </object>
+  <object id="CategoryModule" type="com.company.spancy.module.CategoryModule, com.company.spancy" parent="NancyModule">
+    <property name="CategoryService" ref="CategoryService"/>
+  </object>
+  <object id="UserModule" type="com.company.spancy.module.UserModule, com.company.spancy" parent="NancyModule">
+    <property name="UserService" ref="UserService"/>
+  </object>
+  <object id="GroupModule" type="com.company.spancy.module.GroupModule, com.company.spancy" parent="NancyModule">
+    <property name="GroupService" ref="GroupService"/>
+  </object>
+  <object id="UserGroupModule" type="com.company.spancy.module.UserGroupModule, com.company.spancy" parent="NancyModule">
+    <property name="UserGroupService" ref="UserGroupService"/>
+  </object>
+  <object id="ClientAccountModule" type="com.company.spancy.module.ClientAccountModule, com.company.spancy" parent="NancyModule">
+    <property name="ClientAccountService" ref="ClientAccountService"/>
+  </object>
+  <object id="ClientModule" type="com.company.spancy.module.ClientModule, com.company.spancy" parent="NancyModule">
+    <property name="ClientService" ref="ClientService"/>
+  </object>
+  <object id="AccountModule" type="com.company.spancy.module.AccountModule, com.company.spancy" parent="NancyModule">
+    <property name="AccountService" ref="AccountService"/>
+  </object>
+  <object id="AuthorModule" type="com.company.spancy.module.AuthorModule, com.company.spancy" parent="NancyModule">
+    <property name="AuthorService" ref="AuthorService"/>
+  </object>
+  <object id="ManuscriptModule" type="com.company.spancy.module.ManuscriptModule, com.company.spancy" parent="NancyModule">
+    <property name="ManuscriptService" ref="ManuscriptService"/>
+  </object>
+  <object id="ManuscriptAuthorModule" type="com.company.spancy.module.ManuscriptAuthorModule, com.company.spancy" parent="NancyModule">
+    <property name="ManuscriptAuthorService" ref="ManuscriptAuthorService"/>
+  </object>
+  <object id="MemberModule" type="com.company.spancy.module.MemberModule, com.company.spancy" parent="NancyModule">
+    <property name="MemberService" ref="MemberService"/>
+  </object>
+  <object id="MemberMemberModule" type="com.company.spancy.module.MemberMemberModule, com.company.spancy" parent="NancyModule">
+    <property name="MemberMemberService" ref="MemberMemberService"/>
+  </object>
+  <object id="WorkerModule" type="com.company.spancy.module.WorkerModule, com.company.spancy" parent="NancyModule">
+    <property name="WorkerService" ref="WorkerService"/>
+  </object>
+  <object id="WorkerWorkerModule" type="com.company.spancy.module.WorkerWorkerModule, com.company.spancy" parent="NancyModule">
+    <property name="WorkerWorkerService" ref="WorkerWorkerService"/>
+  </object>
+  <object id="ProtocolModule" type="com.company.spancy.module.ProtocolModule, com.company.spancy" parent="NancyModule">
+    <property name="ProtocolService" ref="ProtocolService"/>
+  </object>
+  <object id="EstateModule" type="com.company.spancy.module.EstateModule, com.company.spancy" parent="NancyModule">
+    <property name="EstateService" ref="EstateService"/>
+  </object>
+  <object id="EmployeeModule" type="com.company.spancy.module.EmployeeModule, com.company.spancy" parent="NancyModule">
+    <property name="EmployeeService" ref="EmployeeService"/>
+  </object>
+</objects>

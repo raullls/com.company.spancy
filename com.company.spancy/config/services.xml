@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+  <object id="BaseService" type="com.company.spancy.service.impl.BaseService, com.company.spancy" abstract="true">
+    <property name="Logging" ref="CustomLoggingAdvice" />
+    <property name="MessageSource" ref="messageSource" />
+  </object>
+  <object id="ProductService" type="com.company.spancy.service.impl.ProductService, com.company.spancy" parent="BaseService">
+    <property name="ErrorMsges">
+      <list>
+        <value>error.objectsamename</value>
+      </list>
+    </property>
+    <property name="Hql" value="from Product p where lower(p.Name) = lower(:Name)" />
+    <property name="Dao" ref="ProductDao"/>
+    <property name="Mapper" ref="ProductMapper"/>
+  </object>
+  <object id="BookService" type="com.company.spancy.service.impl.BookService, com.company.spancy" parent="BaseService">
+    <property name="ErrorMsges">
+      <list>
+        <value>error.objectsamename</value>
+      </list>
+    </property>
+    <property name="Hql" value="from Book b where lower(b.Name) = lower(:Name) and lower(b.Shipping.City) = lower(:Shipping.City)" />
+    <property name="Dao" ref="BookDao"/>
+    <property name="Mapper" ref="BookMapper"/>
+  </object>
+  <object id="CustomerService" type="com.company.spancy.service.impl.CustomerService, com.company.spancy" parent="BaseService">
+    <property name="ErrorMsges">
+      <list>
+        <value>error.objectsamename</value>
+      </list>
+    </property>
+    <property name="Hql" value="from Customer c where lower(c.Name) = lower(:Name) and c.Cart.Amount = :Cart.Amount" />
+    <property name="Dao" ref="CustomerDao"/>
+    <property name="Mapper" ref="CustomerMapper"/>
+  </object>
+  <object id="StudentService" type="com.company.spancy.service.impl.StudentService, com.company.spancy" parent="BaseService">
+    <property name="ErrorMsges">
+      <list>
+        <value>error.objectsamename</value>
+        <value>error.inexistentmentor</value>
+      </list>
+    </property>
+    <property name="Hql" value="from Student s where lower(s.Name) = lower(:Name) and (s.Id = 0 or s.Id != :Id)" />
+    <property name="Dao" ref="StudentDao"/>
+    <property name="Mapper" ref="StudentMapper"/>
+  </object>
+  <object id="PersonService" type="com.company.spancy.service.impl.PersonService, com.company.spancy" parent="BaseService">
+    <property name="ErrorMsges">
+      <list>
+        <value>error.objectsamename</value>
+      </list>
+    </property>
+    <property name="Hql" value="from Person p where lower(p.Name) = lower(:Name) and (p.Id = 0 or p.Id != :Id)" />
+    <property name="Dao" ref="PersonDao"/>
+    <property name="Mapper" ref="PersonMapper"/>
+  </object>
+  <object id="ItemService" type="com.company.spancy.service.impl.ItemService, com.company.spancy" parent="BaseService">
+    <property name="ErrorMsges">
+      <list>
+        <value>error.objectsamename</value>
+      </list>
+    </property>
+    <property name="Hql" value="from Item i where lower(i.Name) = lower(:Name) and (i.Id = 0 or i.Id != :Id)" />
+    <property name="Dao" ref="ItemDao"/>
+    <property name="Mapper" ref="ItemMapper"/>
+  </object>
+  <object id="CategoryService" type="com.company.spancy.service.impl.CategoryService, com.company.spancy" parent="BaseService">
+    <property name="ErrorMsges">
+      <list>
+        <value>error.objectsamename</value>
+      </list>
+    </property>
+    <property name="Hql" value="from Category c where lower(c.Name) = lower(:Name) and (c.Id = 0 or c.Id != :Id)" />
+    <property name="Dao" ref="CategoryDao"/>
+    <property name="Mapper" ref="CategoryMapper"/>
+  </object>
+  <object id="UserService" type="com.company.spancy.service.impl.UserService, com.company.spancy" parent="BaseService">
+    <property name="ErrorMsges">
+      <list>
+        <value>error.objectsamename</value>
+      </list>
+    </property>
+    <property name="Hql" value="from User u where lower(u.Name) = lower(:Name) and (u.Id = 0 or u.Id != :Id)" />
+    <property name="Dao" ref="UserDao"/>
+    <property name="Mapper" ref="UserMapper"/>
+  </object>
+  <object id="GroupService" type="com.company.spancy.service.impl.GroupService, com.company.spancy" parent="BaseService">
+    <property name="ErrorMsges">
+      <list>
+        <value>error.objectsamename</value>
+      </list>
+    </property>
+    <property name="Hql" value="from Group g where lower(g.Name) = lower(:Name) and (g.Id = 0 or g.Id != :Id)" />
+    <property name="Dao" ref="GroupDao"/>
+    <property name="Mapper" ref="GroupMapper"/>
+    <property name="UserGroupService" ref="UserGroupService"/>
+  </object>
+  <object id="UserGroupService" type="com.company.spancy.service.impl.UserGroupService, com.company.spancy">
+    <property name="GroupDao" ref="GroupDao" />
+    <property name="UserDao" ref="UserDao" />
+    <property name="UserGroupDao" ref="UserGroupDao" />
+    <property name="UserMapper" ref="UserMapper" />
+    <property name="GroupMapper" ref="GroupMapper" />
+  </object>
+  <object id="ClientService" type="com.company.spancy.service.impl.ClientService, com.company.spancy" parent="BaseService">
+    <property name="ErrorMsges">
+      <list>
+        <value>error.objectsamename</value>
+      </list>
+    </property>
+    <property name="Hql" value="from Client c where lower(c.Name) = lower(:Name) and (c.Id = 0 or c.Id != :Id)" />
+    <property name="Dao" ref="ClientDao"/>
+    <property name="Mapper" ref="ClientMapper"/>
+  </object>
+  <object id="AccountService" type="com.company.spancy.service.impl.AccountService, com.company.spancy" parent="BaseService">
+    <property name="ErrorMsges">
+      <list>
+        <value>error.objectsamename</value>
+      </list>
+    </property>
+    <property name="Hql" value="from Account a where lower(a.Number) = lower(:Number) and (a.Id = 0 or a.Id != :Id)" />
+    <property name="Dao" ref="AccountDao"/>
+    <property name="Mapper" ref="AccountMapper"/>
+  </object>
+  <object id="ClientAccountService" type="com.company.spancy.service.impl.ClientAccountService, com.company.spancy">
+    <property name="ClientDao" ref="ClientDao"/>
+    <property name="AccountDao" ref="AccountDao"/>
+    <property name="ClientAccountDao" ref="ClientAccountDao"/>
+    <property name="ClientMapper" ref="ClientMapper"/>
+    <property name="AccountMapper" ref="AccountMapper"/>
+  </object>
+  <object id="AuthorService" type="com.company.spancy.service.impl.AuthorService, com.company.spancy" parent="BaseService">
+    <property name="ErrorMsges"> 
+      <list>
+        <value>error.objectsamename</value>
+      </list>
+    </property>
+    <property name="Hql" value="from Author a where lower(a.Name) = lower(:Name) and (a.Id = 0 or a.Id != :Id)" />
+    <property name="Dao" ref="AuthorDao"/>
+    <property name="Mapper" ref="AuthorMapper"/>
+  </object>
+  <object id="ManuscriptService" type="com.company.spancy.service.impl.ManuscriptService, com.company.spancy" parent="BaseService">
+    <property name="ErrorMsges"> 
+      <list>
+        <value>error.objectsamename</value>
+      </list>
+    </property>
+    <property name="Hql" value="from Manuscript m where lower(m.Name) = lower(:Name) and (m.Id = 0 or m.Id != :Id)" />
+    <property name="Dao" ref="ManuscriptDao"/>
+    <property name="Mapper" ref="ManuscriptMapper"/>
+  </object>
+  <object id="ManuscriptAuthorService" type="com.company.spancy.service.impl.ManuscriptAuthorService, com.company.spancy">
+    <property name="ManuscriptDao" ref="ManuscriptDao"/>
+    <property name="AuthorDao" ref="AuthorDao"/>
+    <property name="ManuscriptAuthorDao" ref="ManuscriptAuthorDao"/>
+    <property name="ManuscriptMapper" ref="ManuscriptMapper"/>
+    <property name="AuthorMapper" ref="AuthorMapper"/>
+  </object>
+  <object id="MemberService" type="com.company.spancy.service.impl.MemberService, com.company.spancy" parent="BaseService">
+    <property name="ErrorMsges"> 
+      <list>
+        <value>error.objectsamename</value>
+      </list>
+    </property>
+    <property name="Hql" value="from Member m where lower(m.Name) = lower(:Name) and (m.Id = 0 or m.Id != :Id)" />
+    <property name="Dao" ref="MemberDao"/>
+    <property name="Mapper" ref="MemberMapper"/>
+    <property name="MemberMemberService" ref="MemberMemberService"/>
+  </object>
+  <object id="MemberMemberService" type="com.company.spancy.service.impl.MemberMemberService, com.company.spancy">
+    <property name="MemberDao" ref="MemberDao"/>
+    <property name="MemberMemberDao" ref="MemberMemberDao"/>
+    <property name="MemberMapper" ref="MemberMapper"/>
+  </object>
+  <object id="ProtocolService" type="com.company.spancy.service.impl.ProtocolService, com.company.spancy" parent="BaseService">
+    <property name="ErrorMsges"> 
+      <list>
+        <value>error.objectsamename</value>
+      </list>
+    </property>
+    <property name="Hql" value="from Protocol p where lower(p.Name) = lower(:Name) and (p.Id = 0 or p.Id != :Id)" />
+    <property name="Dao" ref="ProtocolDao"/>
+    <property name="Mapper" ref="ProtocolMapper"/>
+  </object>
+  <object id="EstateService" type="com.company.spancy.service.impl.EstateService, com.company.spancy" parent="BaseService">
+    <property name="ErrorMsges"> 
+      <list>
+        <value>error.objectsamename</value>
+      </list>
+    </property>
+    <property name="Hql" value="from Estate e where lower(e.Name) = lower(:Name) and (e.Id = 0 or e.Id != :Id)" />
+    <property name="Dao" ref="EstateDao"/>
+    <property name="Mapper" ref="EstateMapper"/>
+  </object>
+  <object id="EmployeeService" type="com.company.spancy.service.impl.EmployeeService, com.company.spancy" parent="BaseService">
+    <property name="ErrorMsges"> 
+      <list>
+        <value>error.objectsamename</value>
+      </list>
+    </property>
+    <property name="Hql" value="from Employee e where lower(e.Name) = lower(:Name) and (e.Id = 0 or e.Id != :Id)" />
+    <property name="Dao" ref="EmployeeDao"/>
+    <property name="Mapper" ref="EmployeeMapper"/>
+  </object>
+  <object id="WorkerService" type="com.company.spancy.service.impl.WorkerService, com.company.spancy" parent="BaseService">
+    <property name="ErrorMsges"> 
+      <list>
+        <value>error.objectsamename</value>
+      </list>
+    </property>
+    <property name="Hql" value="from Worker w where lower(w.Name) = lower(:Name) and (w.Id = 0 or w.Id != :Id)" />
+    <property name="Dao" ref="WorkerDao"/>
+    <property name="Mapper" ref="WorkerMapper"/>
+  </object>
+  <object id="WorkerWorkerService" type="com.company.spancy.service.impl.WorkerWorkerService, com.company.spancy">
+    <property name="WorkerDao" ref="WorkerDao"/>
+    <property name="WorkerWorkerDao" ref="WorkerWorkerDao"/>
+    <property name="WorkerMapper" ref="WorkerMapper"/>
+  </object>
+</objects>

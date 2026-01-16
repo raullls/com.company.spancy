@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+  <object id="EstateDtoBinder" type="com.company.spancy.binder.EstateDtoBinder, com.company.spancy"></object>
+  <object id="ProtocolDtoBinder" type="com.company.spancy.binder.ProtocolDtoBinder, com.company.spancy"></object>
+  <object id="EmployeeDtoBinder" type="com.company.spancy.binder.EmployeeDtoBinder, com.company.spancy"></object>
+</objects>

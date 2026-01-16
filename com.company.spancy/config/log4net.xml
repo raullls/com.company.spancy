@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<log4net>
+  <appender name="traceappender" type="log4net.Appender.TraceAppender">
+    <layout type="log4net.Layout.PatternLayout">
+      <conversionPattern value="%date %-5level %logger - %message%newline" />
+    </layout>
+  </appender>
+
+  <root>
+    <level value="ALL" />
+  </root>
+
+  <logger name="com.company.spancy">
+    <level value="DEBUG"></level>
+    <appender-ref ref="traceappender"></appender-ref>
+  </logger>
+
+  <logger name="NHibernate.SQL">
+    <level value="DEBUG"></level>
+    <appender-ref ref="traceappender"></appender-ref>
+  </logger>
+</log4net>

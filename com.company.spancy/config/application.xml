@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<appconfig>
+  <add key="root.path" value="C:\Projects\Spring\com.company.spancy\com.company.spancy"></add>
+</appconfig>

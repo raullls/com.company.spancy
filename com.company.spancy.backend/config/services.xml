@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects xmlns="http://www.springframework.net">
+    <object id="BaseService" type="com.company.spancy.backend.service.impl.BaseService, com.company.spancy.backend" abstract="true">
+        <property name="Logging" ref="CustomLoggingAdvice" />
+        <property name="MessageSource" ref="messageSource" />
+    </object> 
+    <object id="ProductService" type="com.company.spancy.backend.service.impl.ProductService, com.company.spancy.backend" parent="BaseService" >
+        <property name="ErrorMsges">
+            <list>
+                <value>error.objectsamename</value>
+            </list>
+        </property>
+        <property name="Hql" value="from Product p where lower(p.Name) = lower(:Name)" />
+        <property name="Dao" ref="ProductDao" />
+        <property name="Mapper" ref="ProductMapper" />
+    </object>
+</objects>

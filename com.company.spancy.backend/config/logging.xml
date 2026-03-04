@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+  <object id="Log4NetConfigProperties" type="Common.Logging.Configuration.NameValueCollection, Common.Logging">
+    <property name="['configType']" value="FILE-WATCH"/>
+    <property name="['configFile']" value="./config/log4net.xml"/>
+  </object>
+
+  <object id="Log4NetConfig" type="Common.Logging.Log4Net.Log4NetLoggerFactoryAdapter, Common.Logging.Log4Net1210">
+    <constructor-arg name="properties" ref="Log4NetConfigProperties" />
+  </object>
+
+  <object id="LogManager" type="Common.Logging.LogManager, Common.Logging">
+    <property name="Adapter" ref="Log4NetConfig" />
+  </object>
+</objects>

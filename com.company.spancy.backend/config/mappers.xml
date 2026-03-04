@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+    <object id="ProductMapper" type="com.company.spancy.backend.mapper.impl.BaseMapper&lt;com.company.spancy.backend.dto.ProductDto,com.company.spancy.backend.entity.Product>, com.company.spancy.backend"></object>
+</objects>

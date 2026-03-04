@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Vitest",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/com.company.spancy.front",
+            "program": "${workspaceFolder}/com.company.spancy.front/node_modules/vitest/vitest.mjs",
+            "args": ["run", "${file}"],
+            "autoAttachChildProcesses": true,
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "smartStep": true,
+            "console": "integratedTerminal"
+        }
+    ]
+}

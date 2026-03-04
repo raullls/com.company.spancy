@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects xmlns="http://www.springframework.net" xmlns:db="http://www.springframework.net/database" xmlns:context="http://www.springframework.net/context">
+    <object id="BaseDao" type="com.company.spancy.backend.dao.impl.BaseDao, com.company.spancy.backend" abstract="true" >
+        <property name="SessionFactory" ref="NHibernateSessionFactory" />
+    </object>
+    <object id="ProductDao" type="com.company.spancy.backend.dao.impl.ProductDao, com.company.spancy.backend" parent="BaseDao"></object>
+    <db:provider id="DbProvider" provider="System.Data.SQLite" connectionString="Data Source=database/sample.db;Version=3;FailIfMissing=True;" />
+    <object id="NHibernateSessionFactory" type="Spring.Data.NHibernate.LocalSessionFactoryObject, Spring.Data.NHibernate5">
+        <property name="DbProvider" ref="DbProvider" />
+        <property name="MappingResources">
+            <list>
+                <value>file://mapping/Product.hbm.xml</value>
+            </list>
+        </property>
+        <property name="HibernateProperties">
+            <dictionary>
+                <entry key="hibernate.connection.provider" value="NHibernate.Connection.DriverConnectionProvider" />
+                <entry key="dialect" value="NHibernate.Dialect.SQLiteDialect" />
+                <entry key="connection.driver_class" value="NHibernate.Driver.SQLite20Driver" />
+                <entry key="show_sql" value="false" />
+            </dictionary>
+        </property>
+        <property name="ExposeTransactionAwareSessionFactory" value="true" />
+    </object>
+    <object id="TransactionManager" type="Spring.Data.NHibernate.HibernateTransactionManager, Spring.Data.NHibernate5">
+        <property name="DbProvider" ref="DbProvider" />
+        <property name="SessionFactory" ref="NHibernateSessionFactory" />
+    </object>
+</objects>

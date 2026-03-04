@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="com.company.spancy.backend" namespace="com.company.spancy.backend.entity">
+    <class name="Product" table="Products">
+        <id name="Id">
+            <generator class="native" />
+        </id>
+        <property name="Name" />
+    </class>
+</hibernate-mapping>
+<!--
+CREATE TABLE "Products" (
+    "Id" INTEGER,
+    "Name" TEXT,
+    PRIMARY KEY("Id" AUTOINCREMENT)
+);
+-->

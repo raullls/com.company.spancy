@@ -1,6 +1,7 @@
 using com.company.spancy.backend;
 using Nancy.Testing;
 using NHibernate;
+using Spring.Context.Support;
 using Spring.Testing.Microsoft;
 
 namespace com.company.spancy.test
@@ -29,6 +30,7 @@ namespace com.company.spancy.test
         public void DoTestCleanup()
         {
             base.TestCleanup();
+            ContextRegistry.Clear();
         }
 
         protected override string[] ConfigLocations

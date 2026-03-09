@@ -3,3 +3,5 @@ com.company.spancy.backend/obj/
 com.company.spancy.front/node_modules/
 com.company.spancy.test/bin/
 com.company.spancy.test/obj/
+com.company.spancy.test/results/
+com.company.spancy.test/TestResults/

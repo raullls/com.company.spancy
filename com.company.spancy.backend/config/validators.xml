@@ -14,4 +14,11 @@
             </v:message>
         </v:condition>
     </v:group>
+    <v:group id="bookValidator">
+        <v:condition test="#root != null and #root.Name != null and #root.Name != '' and #root.City != null and #root.City != ''">
+        <v:message id="error.emptynullcheck" providers="provider">
+            <v:param value="#root"></v:param>
+        </v:message>
+        </v:condition>
+    </v:group>
 </objects>

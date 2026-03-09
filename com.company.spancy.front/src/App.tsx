@@ -2,6 +2,7 @@ import { Container, ListGroup } from 'react-bootstrap';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css'
 import ProductManager from './ProductManager/ProductManager';
+import BookManager from './BookManager/BookManager';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/productmanager' element={<ProductManager />} />
+          <Route path='/bookmanager' element={<BookManager />} />
         </Routes>
       </div>
     </Router>
@@ -24,6 +26,9 @@ function Home() {
       <ListGroup as='ul'>
         <ListGroup.Item as='li'>
           <Link to='/productmanager'>Product Manager</Link>
+        </ListGroup.Item>
+        <ListGroup.Item as='li'>
+          <Link to='/bookmanager'>Book Manager</Link>
         </ListGroup.Item>
       </ListGroup>
     </Container>

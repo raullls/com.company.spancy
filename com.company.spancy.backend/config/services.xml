@@ -14,4 +14,14 @@
         <property name="Dao" ref="ProductDao" />
         <property name="Mapper" ref="ProductMapper" />
     </object>
+    <object id="BookService" type="com.company.spancy.backend.service.impl.BookService, com.company.spancy.backend" parent="BaseService">
+        <property name="ErrorMsges">
+        <list>
+            <value>error.objectsamename</value>
+        </list>
+        </property>
+        <property name="Hql" value="from Book b where lower(b.Name) = lower(:Name) and lower(b.Shipping.City) = lower(:Shipping.City)" />
+        <property name="Dao" ref="BookDao"/>
+        <property name="Mapper" ref="BookMapper"/>
+    </object>
 </objects>

@@ -21,4 +21,11 @@
         </v:message>
         </v:condition>
     </v:group>
+    <v:group id="customerValidator">
+        <v:condition test="#root != null and #root.Name != null and #root.Name != ''">
+        <v:message id="error.emptynullcheck" providers="provider">
+            <v:param value="#root"></v:param>
+        </v:message>
+        </v:condition>
+    </v:group>
 </objects>

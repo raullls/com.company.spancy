@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css'
 import ProductManager from './ProductManager/ProductManager';
 import BookManager from './BookManager/BookManager';
+import CustomerManager from './CustomerManager/CustomerManager';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/productmanager' element={<ProductManager />} />
           <Route path='/bookmanager' element={<BookManager />} />
+          <Route path='/customermanager' element={<CustomerManager />} />
         </Routes>
       </div>
     </Router>
@@ -29,6 +31,9 @@ function Home() {
         </ListGroup.Item>
         <ListGroup.Item as='li'>
           <Link to='/bookmanager'>Book Manager</Link>
+        </ListGroup.Item>
+        <ListGroup.Item as='li'>
+          <Link to='/customermanager'>Customer Manager</Link>
         </ListGroup.Item>
       </ListGroup>
     </Container>

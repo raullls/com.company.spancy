@@ -2,4 +2,5 @@
 <objects xmlns="http://www.springframework.net">
     <object id="ProductMapper" type="com.company.spancy.backend.mapper.impl.BaseMapper&lt;com.company.spancy.backend.dto.ProductDto,com.company.spancy.backend.entity.Product>, com.company.spancy.backend"></object>
     <object id="BookMapper" type="com.company.spancy.backend.mapper.impl.BookMapper, com.company.spancy.backend"></object>
+    <object id="CustomerMapper" type="com.company.spancy.backend.mapper.impl.CustomerMapper, com.company.spancy.backend"></object>
 </objects>

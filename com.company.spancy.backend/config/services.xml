@@ -24,4 +24,14 @@
         <property name="Dao" ref="BookDao"/>
         <property name="Mapper" ref="BookMapper"/>
     </object>
+    <object id="CustomerService" type="com.company.spancy.backend.service.impl.CustomerService, com.company.spancy.backend" parent="BaseService">
+        <property name="ErrorMsges">
+        <list>
+            <value>error.objectsamename</value>
+        </list>
+        </property>
+        <property name="Hql" value="from Customer c where lower(c.Name) = lower(:Name) and c.Cart.Amount = :Cart.Amount" />
+        <property name="Dao" ref="CustomerDao"/>
+        <property name="Mapper" ref="CustomerMapper"/>
+    </object>
 </objects>

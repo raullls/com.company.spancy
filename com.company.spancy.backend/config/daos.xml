@@ -7,6 +7,9 @@
     <object id="BookDao" type="com.company.spancy.backend.dao.impl.BaseDao&lt;com.company.spancy.backend.entity.Book>, com.company.spancy.backend">
         <property name="SessionFactory" ref="NHibernateSessionFactory" />
     </object>
+    <object id="CustomerDao" type="com.company.spancy.backend.dao.impl.BaseDao&lt;com.company.spancy.backend.entity.Customer>, com.company.spancy.backend">
+        <property name="SessionFactory" ref="NHibernateSessionFactory" />
+    </object>
     <db:provider id="DbProvider" provider="System.Data.SQLite" connectionString="Data Source=database/sample.db;Version=3;FailIfMissing=True;" />
     <object id="NHibernateSessionFactory" type="Spring.Data.NHibernate.LocalSessionFactoryObject, Spring.Data.NHibernate5">
         <property name="DbProvider" ref="DbProvider" />
@@ -15,6 +18,8 @@
                 <value>file://mapping/Product.hbm.xml</value>
                 <value>file://mapping/Book.hbm.xml</value>
                 <value>file://mapping/Shipping.hbm.xml</value>
+                <value>file://mapping/Customer.hbm.xml</value>
+                <value>file://mapping/Cart.hbm.xml</value>
             </list>
         </property>
         <property name="HibernateProperties">

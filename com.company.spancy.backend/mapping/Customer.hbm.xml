@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="com.company.spancy.backend"
+                   namespace="com.company.spancy.backend.entity">
+
+  <!-- more mapping info here -->
+  <class name="Customer" table="Customers">
+    <id name="Id">
+      <generator class="native" />
+    </id>
+    <property name="Name" />
+    <many-to-one name="Cart" column="CartId" cascade="all-delete-orphan" />
+  </class>
+
+</hibernate-mapping>
+<!--
+CREATE TABLE "Customers" (
+	"Id"	INTEGER,
+	"Name"	TEXT,
+	"CartId"	INTEGER,
+	FOREIGN KEY("CartId") REFERENCES "Carts"("Id"),
+	PRIMARY KEY("Id" AUTOINCREMENT)
+)
+-->

@@ -34,4 +34,15 @@
         <property name="Dao" ref="CustomerDao"/>
         <property name="Mapper" ref="CustomerMapper"/>
     </object>
+    <object id="StudentService" type="com.company.spancy.backend.service.impl.StudentService, com.company.spancy.backend" parent="BaseService">
+        <property name="ErrorMsges">
+        <list>
+            <value>error.objectsamename</value>
+            <value>error.inexistentmentor</value>
+        </list>
+        </property>
+        <property name="Hql" value="from Student s where lower(s.Name) = lower(:Name) and (s.Id = 0 or s.Id != :Id)" />
+        <property name="Dao" ref="StudentDao"/>
+        <property name="Mapper" ref="StudentMapper"/>
+    </object>
 </objects>

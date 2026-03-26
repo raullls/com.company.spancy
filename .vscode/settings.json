@@ -1,3 +1,8 @@
 {
-  "dotnet.unitTests.runSettingsPath": "com.company.spancy.test/test.runsettings"
+  "dotnet.unitTests.runSettingsPath": "com.company.spancy.test/test.runsettings",
+  "chat.mcp.serverSampling": {
+    "com.company.spancy/.vscode/mcp.json: Palantir": {
+      "allowedModels": []
+    }
+  }
 }

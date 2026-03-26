@@ -10,4 +10,7 @@
     <object id="CustomerModule" type="com.company.spancy.backend.module.CustomerModule, com.company.spancy.backend" parent="NancyModule" >
         <property name="CustomerService" ref="CustomerService" />
     </object>
+    <object id="StudentModule" type="com.company.spancy.backend.module.StudentModule, com.company.spancy.backend" parent="NancyModule" >
+        <property name="StudentService" ref="StudentService" />
+    </object>
 </objects>

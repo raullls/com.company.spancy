@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="com.company.spancy.backend"
+                   namespace="com.company.spancy.backend.entity">
+
+  <!-- more mapping info here -->
+  <class name="Student" table="Students">
+    <id name="Id">
+      <generator class="native" />
+    </id>
+    <property name="Name" />
+    <many-to-one name="Mentor" column="StudentId" cascade="save-update" />
+    <bag name="Mentees" cascade="none" inverse="true">
+      <key column="StudentId" />
+      <one-to-many class="Student" />
+    </bag>
+  </class>
+
+</hibernate-mapping>
+<!--
+CREATE TABLE "Students" (
+	"Id"	INTEGER,
+	"Name"	TEXT,
+	"StudentId"	INTEGER,
+	PRIMARY KEY("Id" AUTOINCREMENT),
+	FOREIGN KEY("StudentId") REFERENCES "Students"("Id")
+)
+-->

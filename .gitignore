@@ -6,5 +6,5 @@ com.company.spancy.test/obj/
 com.company.spancy.test/results/
 com.company.spancy.test/TestResults/
 .continue/
-.vscode/
+.vscode/mcp.json
 results/

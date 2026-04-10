@@ -5,6 +5,7 @@ import ProductManager from './ProductManager/ProductManager';
 import BookManager from './BookManager/BookManager';
 import CustomerManager from './CustomerManager/CustomerManager';
 import StudentManager from './StudentManager/StudentManager';
+import PersonManager from './PersonManager/PersonManager';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path='/bookmanager' element={<BookManager />} />
           <Route path='/customermanager' element={<CustomerManager />} />
           <Route path='/studentmanager' element={<StudentManager />} />
+          <Route path='/personmanager' element={<PersonManager />} />
         </Routes>
       </div>
     </Router>
@@ -39,6 +41,9 @@ function Home() {
         </ListGroup.Item>
         <ListGroup.Item as='li'>
           <Link to='/studentmanager'>Student Manager</Link>
+        </ListGroup.Item>
+        <ListGroup.Item as='li'>
+          <Link to='/personmanager'>Person Manager</Link>
         </ListGroup.Item>
       </ListGroup>
     </Container>

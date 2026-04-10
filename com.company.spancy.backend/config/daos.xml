@@ -10,7 +10,10 @@
     <object id="CustomerDao" type="com.company.spancy.backend.dao.impl.BaseDao&lt;com.company.spancy.backend.entity.Customer>, com.company.spancy.backend">
         <property name="SessionFactory" ref="NHibernateSessionFactory" />
     </object>
-    <object id="StudentDao" type="com.company.spancy.backend.dao.impl.BaseDao&lt;com.company.spancy.backend.entity.Student>, com.company.spancy.backend">
+        <object id="StudentDao" type="com.company.spancy.backend.dao.impl.BaseDao&lt;com.company.spancy.backend.entity.Student>, com.company.spancy.backend">
+        <property name="SessionFactory" ref="NHibernateSessionFactory" />
+    </object>
+    <object id="PersonDao" type="com.company.spancy.backend.dao.impl.BaseDao&lt;com.company.spancy.backend.entity.Person>, com.company.spancy.backend">
         <property name="SessionFactory" ref="NHibernateSessionFactory" />
     </object>
     <db:provider id="DbProvider" provider="System.Data.SQLite" connectionString="Data Source=database/sample.db;Version=3;FailIfMissing=True;" />
@@ -24,6 +27,8 @@
                 <value>file://mapping/Customer.hbm.xml</value>
                 <value>file://mapping/Cart.hbm.xml</value>
                 <value>file://mapping/Student.hbm.xml</value>
+                <value>file://mapping/Person.hbm.xml</value>
+                <value>file://mapping/Phone.hbm.xml</value>
             </list>
         </property>
         <property name="HibernateProperties">

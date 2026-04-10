@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="com.company.spancy.backend"
+                   namespace="com.company.spancy.backend.entity">
+
+  <!-- more mapping info here -->
+  <class name="Phone" table="Phones">
+    <id name="Id">
+      <generator class="native" />
+    </id>
+    <property name="Number" />
+  </class>
+
+</hibernate-mapping>
+<!--
+CREATE TABLE "Phones" (
+	"Id"	INTEGER,
+	"Number"	TEXT,
+	"PersonId"	INTEGER,
+	FOREIGN KEY("PersonId") REFERENCES "Persons"("Id"),
+	PRIMARY KEY("Id" AUTOINCREMENT)
+);
+-->

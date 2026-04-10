@@ -7,4 +7,8 @@
         <property name="Dao" ref="StudentDao"/>
         <property name="Hql" value="from Student s where lower(s.Name) = lower(:Name)" />
     </object>
+    <object id="PersonMapper" type="com.company.spancy.backend.mapper.impl.PersonMapper, com.company.spancy.backend">
+        <property name="Dao" ref="PersonDao"/>
+        <property name="Hql" value="from Person p where lower(p.Name) = lower(:Name) and p.Id = :Id" />
+    </object>
 </objects>

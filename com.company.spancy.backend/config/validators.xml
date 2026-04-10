@@ -28,7 +28,14 @@
         </v:message>
         </v:condition>
     </v:group>
-    <v:group id="studentValidator">
+        <v:group id="studentValidator">
+        <v:condition test="#root != null and #root.Name != null">
+        <v:message id="error.emptynullcheck" providers="provider">
+            <v:param value="#root"></v:param>
+        </v:message>
+        </v:condition>
+    </v:group>
+    <v:group id="personValidator">
         <v:condition test="#root != null and #root.Name != null">
         <v:message id="error.emptynullcheck" providers="provider">
             <v:param value="#root"></v:param>
